@@ -1,4 +1,5 @@
 node_modules/
+app/assets/Andy.jpg/
 .expo/
 npm-debug.*
 *.jks

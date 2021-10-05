@@ -6,7 +6,8 @@ const colors: Colors = {
     primaryColor: "#fc5c65",
     secondaryColor: "#4ecdc4",
     black: "#000",
-    white:"#fff"
+    white:"#fff",
+    medium: '#6e6969'
 }
 
 export default colors
