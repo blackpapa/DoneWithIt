@@ -2,7 +2,6 @@ import React from "react";
 import { Image, ImageBackground, StyleSheet, View } from "react-native";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
-import color from "../config/colors";
 
 interface WindowScreenProps {}
 
@@ -51,7 +50,7 @@ const styles = StyleSheet.create({
   },
 
   buttonsContainer: {
-    padding: 15,
+    padding: 20,
     width: "100%",
   },
 });
