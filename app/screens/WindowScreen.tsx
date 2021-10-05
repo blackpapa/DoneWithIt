@@ -1,5 +1,7 @@
 import React from "react";
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, View } from "react-native";
+import AppButton from "../components/AppButton";
+import AppText from "../components/AppText";
 import color from "../config/color";
 
 interface WindowScreenProps {}
@@ -16,10 +18,10 @@ const WindowScreen: React.FC<WindowScreenProps> = () => {
             style={styles.logo}
             source={require("../assets/logo-red.png")}
           />
-          <Text>Sell what you don't need</Text>
+          <AppText>Sell what you don't need</AppText>
         </View>
 
-        <View style={styles.loginButton}></View>
+        <AppButton title="login" />
         <View style={styles.registerButton}></View>
       </ImageBackground>
     </React.Fragment>
