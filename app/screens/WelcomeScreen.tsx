@@ -1,14 +1,14 @@
 import React from "react";
-import { Image, ImageBackground, StyleSheet, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import AppButton from "../components/AppButton";
-import AppText from "../components/AppText";
 
-interface WindowScreenProps {}
+interface WelcomeScreenProps {}
 
-const WindowScreen: React.FC<WindowScreenProps> = () => {
+const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
   return (
     <React.Fragment>
       <ImageBackground
+        blurRadius={3}
         style={styles.background}
         source={require("../assets/background.jpg")}
       >
@@ -17,7 +17,7 @@ const WindowScreen: React.FC<WindowScreenProps> = () => {
             style={styles.logo}
             source={require("../assets/logo-red.png")}
           />
-          <AppText>Sell what you don't need</AppText>
+          <Text style={styles.tagline}>Sell what you don't need</Text>
         </View>
         <View style={styles.buttonsContainer}>
           <AppButton title="login" onPress={() => console.log("title")} />
@@ -53,6 +53,12 @@ const styles = StyleSheet.create({
     padding: 20,
     width: "100%",
   },
+
+  tagline: {
+    fontSize: 25,
+    fontWeight: "600",
+    paddingVertical: 15,
+  },
 });
 
-export default WindowScreen;
+export default WelcomeScreen;
