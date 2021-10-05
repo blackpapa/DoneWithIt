@@ -2,7 +2,7 @@ import * as React from "react";
 import { Platform, StyleSheet, Text } from "react-native";
 
 interface AppTextProps {
-  style: object;
+  style?: object;
 }
 
 const AppText: React.FC<AppTextProps> = ({ children, style }) => {
@@ -11,7 +11,7 @@ const AppText: React.FC<AppTextProps> = ({ children, style }) => {
 
 const styles = StyleSheet.create({
   font: {
-    fontSize: 18,
+    fontSize: 15,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
 });
