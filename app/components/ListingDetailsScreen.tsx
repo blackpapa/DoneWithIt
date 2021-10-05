@@ -3,16 +3,20 @@ import { Image, View, StyleSheet } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
-interface CardProps {
-  image: any;
+interface ListingDetailsScreenProps {
   title: string;
   subTitle: string;
+  image: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, subTitle, image }) => {
+const ListingDetailsScreen: React.FC<ListingDetailsScreenProps> = ({
+  title,
+  subTitle,
+  image,
+}) => {
   return (
-    <View style={styles.card}>
-      <Image style={styles.image} source={image}></Image>
+    <View>
+      <Image resizeMode="contain" style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.subTitle}>{subTitle}</AppText>
@@ -22,27 +26,24 @@ const Card: React.FC<CardProps> = ({ title, subTitle, image }) => {
 };
 
 const styles = StyleSheet.create({
-  card: {
-    overflow: "hidden",
-    borderRadius: 15,
-    backgroundColor: colors.white,
-    marginBottom: 20,
+  image: {
+    width: "100%",
+    height: 250,
   },
   detailsContainer: {
     padding: 20,
-  },
-  image: {
-    width: "100%",
-    height: 200,
-  },
-  subTitle: {
-    color: colors.secondaryColor,
-    fontWeight: "bold",
+    paddingTop: 0,
   },
   title: {
-    marginBottom: 7,
+    fontSize: 18,
     fontWeight: "bold",
+    marginBottom: 7,
+  },
+  subTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: colors.secondaryColor,
   },
 });
 
-export default Card;
+export default ListingDetailsScreen;
