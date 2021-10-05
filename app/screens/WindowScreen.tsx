@@ -2,7 +2,7 @@ import React from "react";
 import { Image, ImageBackground, StyleSheet, View } from "react-native";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
-import color from "../config/color";
+import color from "../config/colors";
 
 interface WindowScreenProps {}
 
@@ -20,9 +20,14 @@ const WindowScreen: React.FC<WindowScreenProps> = () => {
           />
           <AppText>Sell what you don't need</AppText>
         </View>
-
-        <AppButton title="login" />
-        <View style={styles.registerButton}></View>
+        <View style={styles.buttonsContainer}>
+          <AppButton title="login" onPress={() => console.log("title")} />
+          <AppButton
+            title="register"
+            color="secondaryColor"
+            onPress={() => console.log("register")}
+          />
+        </View>
       </ImageBackground>
     </React.Fragment>
   );
@@ -44,15 +49,10 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
   },
-  loginButton: {
+
+  buttonsContainer: {
+    padding: 15,
     width: "100%",
-    height: 70,
-    backgroundColor: color.primaryColor,
-  },
-  registerButton: {
-    width: "100%",
-    height: 70,
-    backgroundColor: color.secondaryColor,
   },
 });
 

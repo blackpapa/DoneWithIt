@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import color from "../config/color";
+import color from "../config/colors";
 
 interface ViewImageScreenProps {}
 
