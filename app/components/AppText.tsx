@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Platform, StyleSheet, Text } from "react-native";
 
-interface AppTextProps {}
+interface AppTextProps {
+  style: object;
+}
 
-const AppText: React.FC<AppTextProps> = ({ children }) => {
-  return <Text style={styles.font}>{children}</Text>;
+const AppText: React.FC<AppTextProps> = ({ children, style }) => {
+  return <Text style={[styles.font, style]}>{children}</Text>;
 };
 
 const styles = StyleSheet.create({
