@@ -1,6 +1,7 @@
 import * as React from "react";
 import { FlatList } from "react-native";
 import ListItem from "./ListItem";
+import ListItemSeperator from "./ListItemSeperator";
 import Screen from "./Screen";
 
 interface MessagesScreenProps {}
@@ -33,6 +34,7 @@ const MessagesScreen: React.FC<MessagesScreenProps> = () => {
             image={item.image}
           />
         )}
+        ItemSeparatorComponent={ListItemSeperator}
       />
     </Screen>
   );

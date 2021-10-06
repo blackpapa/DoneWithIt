@@ -24,6 +24,7 @@ const ListItem: React.FC<ListItemProps> = ({ image, title, subTitle }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    padding: 15,
   },
   image: {
     width: 70,
