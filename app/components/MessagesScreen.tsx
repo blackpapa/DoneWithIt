@@ -1,8 +1,10 @@
 import * as React from "react";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
+import colors from "../config/colors";
 import ListItem from "./ListItem";
 import ListItemSeperator from "./ListItemSeperator";
 import Screen from "./Screen";
+import ListItemDeleteAction from "./ListItemDeleteAction";
 
 interface MessagesScreenProps {}
 
@@ -32,6 +34,8 @@ const MessagesScreen: React.FC<MessagesScreenProps> = () => {
             title={item.title}
             subTitle={item.subTitle}
             image={item.image}
+            onPress={() => console.log(item)}
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}
