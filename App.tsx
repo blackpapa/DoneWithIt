@@ -6,5 +6,11 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import WindowScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return (
+    <ListingDetailsScreen
+      title={""}
+      subTitle={""}
+      image={require("./app/assets/persona_5_royal.jpeg")}
+    />
+  );
 }
