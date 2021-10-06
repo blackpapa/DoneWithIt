@@ -1,5 +1,5 @@
 node_modules/
-app/assets/Andy.jpg/
+app/assets/
 .expo/
 npm-debug.*
 *.jks
