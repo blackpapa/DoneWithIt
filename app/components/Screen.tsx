@@ -12,6 +12,7 @@ const Screen: React.FC<ScreenProps> = ({ children }) => {
 const styles = StyleSheet.create({
   screen: {
     paddingTop: Constants.statusBarHeight,
+    flex: 1,
   },
 });
 

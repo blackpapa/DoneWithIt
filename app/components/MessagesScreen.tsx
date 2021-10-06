@@ -1,6 +1,6 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { FlatList, View } from "react-native";
-import colors from "../config/colors";
+
 import ListItem from "./ListItem";
 import ListItemSeperator from "./ListItemSeperator";
 import Screen from "./Screen";
@@ -8,7 +8,14 @@ import ListItemDeleteAction from "./ListItemDeleteAction";
 
 interface MessagesScreenProps {}
 
-const messages = [
+interface Message {
+  id: number;
+  title: string;
+  subTitle: string;
+  image: any;
+}
+
+const initialMessages = [
   {
     id: 1,
     title: "Andy",
@@ -24,6 +31,13 @@ const messages = [
 ];
 
 const MessagesScreen: React.FC<MessagesScreenProps> = () => {
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [refreshing, setRefreshing] = useState<boolean>(false);
+
+  const handleDelete = (message: Message) => {
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
+
   return (
     <Screen>
       <FlatList
@@ -35,10 +49,23 @@ const MessagesScreen: React.FC<MessagesScreenProps> = () => {
             subTitle={item.subTitle}
             image={item.image}
             onPress={() => console.log(item)}
-            renderRightActions={ListItemDeleteAction}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => handleDelete(item)} />
+            )}
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}
+        refreshing={refreshing}
+        onRefresh={() =>
+          setMessages([
+            {
+              id: 2,
+              title: "Rogan",
+              subTitle: "gentlemen",
+              image: require("../assets/Andy.jpg"),
+            },
+          ])
+        }
       />
     </Screen>
   );
