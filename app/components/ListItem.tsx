@@ -13,8 +13,9 @@ import AppText from "./AppText";
 
 interface ListItemProps {
   title: string;
-  subTitle: string;
+  subTitle?: string;
   image?: any;
+  IconComponent?: JSX.Element;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
   renderRightActions?:
     | ((
@@ -28,6 +29,7 @@ const ListItem: React.FC<ListItemProps> = ({
   image,
   title,
   subTitle,
+  IconComponent,
   onPress,
   renderRightActions,
 }) => {
@@ -36,9 +38,10 @@ const ListItem: React.FC<ListItemProps> = ({
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
           {image && <Image style={styles.image} source={image} />}
-          <View style={styles.userContainer}>
+          {IconComponent}
+          <View style={styles.detailsContainer}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subTitle}>{subTitle}</AppText>
+            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight>
@@ -56,8 +59,9 @@ const styles = StyleSheet.create({
     height: 70,
     borderRadius: 35,
   },
-  userContainer: {
+  detailsContainer: {
     marginLeft: 10,
+    justifyContent: "center",
   },
   title: {
     fontWeight: "bold",

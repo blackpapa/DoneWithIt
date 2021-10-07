@@ -25,7 +25,6 @@ const Icon: React.FC<IconProps> = ({
         borderRadius: size / 2,
         justifyContent: "center",
         alignItems: "center",
-        margin: 10,
       }}
     >
       <MaterialCommunityIcons name={name} size={size / 2} color={iconColor} />

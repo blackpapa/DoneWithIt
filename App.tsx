@@ -8,11 +8,7 @@ import Screen from "./app/components/Screen";
 export default function App() {
   return (
     <Screen>
-      <ListItem
-        title={"Andy"}
-        subTitle={"andyAdmin@gmail.com"}
-        image={undefined}
-      />
+      <ListItem title={"Andy"} IconComponent={<Icon name="email" />} />
     </Screen>
   );
 }
