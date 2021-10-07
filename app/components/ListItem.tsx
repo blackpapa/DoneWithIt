@@ -14,7 +14,7 @@ import AppText from "./AppText";
 interface ListItemProps {
   title: string;
   subTitle: string;
-  image: any;
+  image?: any;
   onPress?: ((event: GestureResponderEvent) => void) | undefined;
   renderRightActions?:
     | ((
@@ -35,7 +35,7 @@ const ListItem: React.FC<ListItemProps> = ({
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
-          <Image style={styles.image} source={image} />
+          {image && <Image style={styles.image} source={image} />}
           <View style={styles.userContainer}>
             <AppText style={styles.title}>{title}</AppText>
             <AppText style={styles.subTitle}>{subTitle}</AppText>
