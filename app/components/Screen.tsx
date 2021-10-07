@@ -5,7 +5,7 @@ import Constants from "expo-constants";
 import colors from "../config/colors";
 
 interface ScreenProps {
-  style: object;
+  style?: object;
 }
 
 const Screen: React.FC<ScreenProps> = ({ children, style }) => {
@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
   screen: {
     paddingTop: Constants.statusBarHeight,
     flex: 1,
-    backgroundColor: colors.light,
   },
 });
 
