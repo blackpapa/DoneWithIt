@@ -4,10 +4,12 @@ import { SafeAreaView, StyleSheet } from "react-native";
 import Constants from "expo-constants";
 import colors from "../config/colors";
 
-interface ScreenProps {}
+interface ScreenProps {
+  style: object;
+}
 
-const Screen: React.FC<ScreenProps> = ({ children }) => {
-  return <SafeAreaView style={styles.screen}>{children}</SafeAreaView>;
+const Screen: React.FC<ScreenProps> = ({ children, style }) => {
+  return <SafeAreaView style={[styles.screen, style]}>{children}</SafeAreaView>;
 };
 
 const styles = StyleSheet.create({
