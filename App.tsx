@@ -1,11 +1,13 @@
 import React from "react";
 import { View } from "react-native";
 import Card from "./app/components/Card";
-import ListingDetailsScreen from "./app/components/ListingDetailsScreen";
-import MessagesScreen from "./app/components/MessagesScreen";
-import ViewImageScreen from "./app/screens/ViewImageScreen";
-import WindowScreen from "./app/screens/WelcomeScreen";
+import Icon from "./app/components/Icon";
+import Screen from "./app/components/Screen";
 
 export default function App() {
-  return <MessagesScreen />;
+  return (
+    <Screen>
+      <Icon name="email" size={50} backgroundColor="red" />
+    </Screen>
+  );
 }
