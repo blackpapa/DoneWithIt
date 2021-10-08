@@ -10,7 +10,7 @@ import colors from "../config/colors";
 interface AppButtonProps {
   title: string;
   color?: string;
-  onPress: (event: GestureResponderEvent) => void;
+  onPress?: (event: GestureResponderEvent) => void;
 }
 
 const AppButton: React.FC<AppButtonProps> = ({

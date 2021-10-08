@@ -47,7 +47,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
         </View>
         <FlatList
           data={items}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <PickerItem
               label={item.label}
