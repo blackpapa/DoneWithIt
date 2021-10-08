@@ -12,6 +12,7 @@ interface AppTextInputProps {
   keyboardType?: KeyboardTypeOptions | undefined;
   textContentType?: any;
   secureTextEntry?: boolean | undefined;
+  onChangeText?: ((text: string) => void) | undefined;
 }
 
 const AppTextInput: React.FC<AppTextInputProps> = ({
@@ -22,6 +23,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
   keyboardType,
   textContentType,
   secureTextEntry,
+  onChangeText,
 }) => {
   return (
     <View style={styles.container}>
@@ -31,6 +33,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
       <TextInput
         style={defaultStyles.text}
         placeholder={placeholder}
+        onChangeText={onChangeText}
         autoCorrect={autoCorrect}
         autoCapitalize={autoCapitalize}
         keyboardType={keyboardType}

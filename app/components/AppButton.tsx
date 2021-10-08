@@ -1,16 +1,11 @@
 import * as React from "react";
-import {
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  GestureResponderEvent,
-} from "react-native";
+import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import colors from "../config/colors";
 
 interface AppButtonProps {
   title: string;
   color?: string;
-  onPress?: (event: GestureResponderEvent) => void;
+  onPress?: (event: any) => void;
 }
 
 const AppButton: React.FC<AppButtonProps> = ({
