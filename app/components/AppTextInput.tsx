@@ -11,7 +11,7 @@ import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../config/defaultStyles";
 
-interface AppTextInputProps {
+export interface AppTextInputProps {
   placeholder?: string;
   icon?: any;
   autoCorrect?: boolean;

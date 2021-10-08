@@ -7,6 +7,7 @@ import AppButton from "./AppButton";
 import AppTextInput from "./AppTextInput";
 import Screen from "./Screen";
 import ErrorMessage from "./ErrorMessage";
+import AppFormField from "./AppFormField";
 
 interface LoginScreenProps {}
 
@@ -26,30 +27,30 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
       >
         {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <React.Fragment>
-            <AppTextInput
+            <AppFormField
               icon="email"
+              name="email"
               placeholder="Username"
               onChangeText={handleChange("email")}
+              onBlur={() => setFieldTouched("email")}
               autoCorrect={false}
               autoCapitalize="none"
               keyboardType="email-address"
               textContentType="emailAddress"
               secureTextEntry={false}
-              onBlur={() => setFieldTouched("email")}
             />
-            <ErrorMessage error={errors.email} visible={touched.email} />
-            <AppTextInput
+            <AppFormField
               icon="lock"
+              name="password"
               placeholder="Password"
               onChangeText={handleChange("password")}
+              onBlur={() => setFieldTouched("password")}
               autoCorrect={false}
               autoCapitalize="none"
               keyboardType="default"
               textContentType="password"
               secureTextEntry={true}
-              onBlur={() => setFieldTouched("password")}
             />
-            <ErrorMessage error={errors.password} visible={touched.password} />
             <AppButton title="Login" onPress={handleSubmit} />
           </React.Fragment>
         )}
