@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TextInput, View, StyleSheet } from "react-native";
+import { TextInput, View, StyleSheet, KeyboardTypeOptions } from "react-native";
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../config/defaultStyles";
@@ -7,15 +7,36 @@ import defaultStyles from "../config/defaultStyles";
 interface AppTextInputProps {
   placeholder?: string;
   icon?: any;
+  autoCorrect?: boolean;
+  autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
+  keyboardType?: KeyboardTypeOptions | undefined;
+  textContentType?: any;
+  secureTextEntry?: boolean | undefined;
 }
 
-const AppTextInput: React.FC<AppTextInputProps> = ({ icon, placeholder }) => {
+const AppTextInput: React.FC<AppTextInputProps> = ({
+  icon,
+  placeholder,
+  autoCorrect,
+  autoCapitalize,
+  keyboardType,
+  textContentType,
+  secureTextEntry,
+}) => {
   return (
     <View style={styles.container}>
       {icon && (
         <MaterialCommunityIcons style={styles.icon} name={icon} size={20} />
       )}
-      <TextInput style={defaultStyles.text} placeholder={placeholder} />
+      <TextInput
+        style={defaultStyles.text}
+        placeholder={placeholder}
+        autoCorrect={autoCorrect}
+        autoCapitalize={autoCapitalize}
+        keyboardType={keyboardType}
+        textContentType={textContentType}
+        secureTextEntry={secureTextEntry}
+      />
     </View>
   );
 };
