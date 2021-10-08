@@ -1,11 +1,19 @@
 import * as React from "react";
-import AppButton from "./AppButton";
-import AppTextInput from "./AppTextInput";
-import Screen from "./Screen";
+import * as Yup from "yup";
 import { Image, StyleSheet } from "react-native";
 import { Formik } from "formik";
 
+import AppButton from "./AppButton";
+import AppTextInput from "./AppTextInput";
+import Screen from "./Screen";
+import ErrorMessage from "./ErrorMessage";
+
 interface LoginScreenProps {}
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().email().required().label("Email"),
+  password: Yup.string().required().min(5).label("Password"),
+});
 
 const LoginScreen: React.FC<LoginScreenProps> = () => {
   return (
@@ -14,8 +22,9 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={(value) => console.log(value)}
+        validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
           <React.Fragment>
             <AppTextInput
               icon="email"
@@ -26,7 +35,9 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
               keyboardType="email-address"
               textContentType="emailAddress"
               secureTextEntry={false}
+              onBlur={() => setFieldTouched("email")}
             />
+            <ErrorMessage error={errors.email} visible={touched.email} />
             <AppTextInput
               icon="lock"
               placeholder="Password"
@@ -36,7 +47,9 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
               keyboardType="default"
               textContentType="password"
               secureTextEntry={true}
+              onBlur={() => setFieldTouched("password")}
             />
+            <ErrorMessage error={errors.password} visible={touched.password} />
             <AppButton title="Login" onPress={handleSubmit} />
           </React.Fragment>
         )}

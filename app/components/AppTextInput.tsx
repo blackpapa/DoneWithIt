@@ -1,5 +1,12 @@
 import * as React from "react";
-import { TextInput, View, StyleSheet, KeyboardTypeOptions } from "react-native";
+import {
+  TextInput,
+  View,
+  StyleSheet,
+  KeyboardTypeOptions,
+  NativeSyntheticEvent,
+  TextInputFocusEventData,
+} from "react-native";
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../config/defaultStyles";
@@ -13,6 +20,9 @@ interface AppTextInputProps {
   textContentType?: any;
   secureTextEntry?: boolean | undefined;
   onChangeText?: ((text: string) => void) | undefined;
+  onBlur?:
+    | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
+    | undefined;
 }
 
 const AppTextInput: React.FC<AppTextInputProps> = ({
@@ -24,6 +34,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
   textContentType,
   secureTextEntry,
   onChangeText,
+  onBlur,
 }) => {
   return (
     <View style={styles.container}>
@@ -39,6 +50,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
         keyboardType={keyboardType}
         textContentType={textContentType}
         secureTextEntry={secureTextEntry}
+        onBlur={onBlur}
       />
     </View>
   );
