@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 import * as React from "react";
-import AppButton from "./AppButton";
+import AppButton from "../AppButton";
 
 interface SubmitButtonProps {
   title: string;
