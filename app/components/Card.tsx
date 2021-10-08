@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   detailsContainer: {
-    padding: 20,
+    padding: 10,
   },
   image: {
     width: "100%",
