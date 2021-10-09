@@ -12,8 +12,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
 import PickerItem from "./PickerItem";
 
+export interface Item {
+  label: string;
+  value: number;
+}
+
 interface AppPickerProps {
-  items?: any[];
+  items?: Item[];
   icon?: any;
   placeholder?: string;
   selectedItem?: any;
@@ -33,7 +38,9 @@ const AppPicker: React.FC<AppPickerProps> = ({
     <React.Fragment>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
         <View style={styles.container}>
-          <MaterialCommunityIcons style={styles.icon} name={icon} size={20} />
+          {icon && (
+            <MaterialCommunityIcons style={styles.icon} name={icon} size={20} />
+          )}
           <AppText style={styles.text}>
             {selectedItem ? selectedItem.label : placeholder}
           </AppText>
@@ -47,7 +54,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
         </View>
         <FlatList
           data={items}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={(item) => item.value.toString()}
           renderItem={({ item }) => (
             <PickerItem
               label={item.label}

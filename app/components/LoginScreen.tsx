@@ -49,7 +49,7 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15,
+    padding: 10,
     paddingTop: 80,
   },
   image: {

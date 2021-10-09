@@ -1,9 +1,10 @@
+import { FormikTouched } from "formik";
 import * as React from "react";
 import AppText from "../AppText";
 
 interface ErrorMessageProps {
   error: any;
-  visible?: boolean;
+  visible?: boolean | FormikTouched<any> | FormikTouched<any>[];
 }
 
 const ErrorMessage: React.FC<ErrorMessageProps> = ({ error, visible }) => {
