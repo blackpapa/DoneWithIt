@@ -1,11 +1,11 @@
 import * as React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
-import ListItem from "./ListItem";
+import ListItem from "./lists/ListItem";
 import Screen from "./Screen";
 import colors from "../config/colors";
 import Icon from "./Icon";
-import ListItemSeperator from "./ListItemSeperator";
+import ListItemSeperator from "./lists/ListItemSeperator";
 
 interface AccountScreenProps {}
 
