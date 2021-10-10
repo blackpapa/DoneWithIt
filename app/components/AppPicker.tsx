@@ -41,7 +41,8 @@ const AppPicker: React.FC<AppPickerProps> = ({
           {icon && (
             <MaterialCommunityIcons style={styles.icon} name={icon} size={20} />
           )}
-          <AppText style={styles.text}>
+
+          <AppText style={selectedItem ? styles.text : styles.placeholder}>
             {selectedItem ? selectedItem.label : placeholder}
           </AppText>
           <MaterialCommunityIcons name="chevron-down" size={20} />
@@ -84,6 +85,11 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   text: {
+    color: colors.black,
+    flex: 1,
+  },
+  placeholder: {
+    color: colors.medium,
     flex: 1,
   },
   button: {

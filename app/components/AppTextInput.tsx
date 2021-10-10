@@ -44,6 +44,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
       <TextInput
         style={defaultStyles.text}
         placeholder={placeholder}
+        placeholderTextColor={colors.medium}
         onChangeText={onChangeText}
         autoCorrect={autoCorrect}
         autoCapitalize={autoCapitalize}
