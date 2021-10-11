@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
 import * as React from "react";
-import AppPicker, { Item } from "../AppPicker";
+import AppPicker, { Item, PickerItemComponentProps } from "../AppPicker";
 import ErrorMessage from "./ErrorMessage";
 
 interface AppFormPickerProps {
@@ -8,7 +8,7 @@ interface AppFormPickerProps {
   items: Item[];
   placeholder: string;
   numColumns?: number;
-  PickerItemComponent?: React.FC;
+  PickerItemComponent?: React.FC<PickerItemComponentProps>;
   width?: string;
 }
 

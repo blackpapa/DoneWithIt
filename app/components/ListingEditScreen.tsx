@@ -8,21 +8,64 @@ import SubmitButton from "./form/SubmitButton";
 import Screen from "./Screen";
 import AppFormPicker from "./form/AppFormPicker";
 import CategoryPickerItem from "./CategoryPickerItem";
+import colors from "../config/colors";
 
 interface ListEditScreenProps {}
 
 const categories = [
   {
-    label: "Furnishing",
+    label: "Furniture",
     value: 1,
+    iconName: "floor-lamp",
+    iconColor: "#fc5c65",
+  },
+  {
+    label: "Cars",
+    value: 2,
+    iconName: "car",
+    iconColor: "#fd9644",
+  },
+  {
+    label: "Cameras",
+    value: 3,
+    iconName: "camera",
+    iconColor: "#fed330",
+  },
+  {
+    label: "Games",
+    value: 4,
+    iconName: "cards",
+    iconColor: "#26de81",
   },
   {
     label: "Clothing",
-    value: 2,
+    value: 5,
+    iconName: "shoe-heel",
+    iconColor: "#2bcbba",
   },
   {
-    label: "Game",
-    value: 3,
+    label: "Sports",
+    value: 6,
+    iconName: "basketball",
+    iconColor: "#45aaf2",
+  },
+  {
+    label: "Movies & Music",
+    value: 7,
+    iconName: "headphones",
+    iconColor: "#4b7bec",
+  },
+  {
+    label: "Books",
+    value: 8,
+    iconName: "book-open-variant",
+    iconColor: "#800080",
+  },
+  {
+    label: "Other",
+    value: 9,
+    iconName: "crop-square",
+    iconColor: colors.medium,
   },
 ];
 
@@ -48,7 +91,7 @@ const ListEditScreen: React.FC<ListEditScreenProps> = () => {
       >
         <AppFormField maxLength={255} name={"title"} placeholder="Title" />
         <AppFormField
-          width="25%"
+          width="30%"
           maxLength={8}
           keyboardType="numeric"
           name="price"

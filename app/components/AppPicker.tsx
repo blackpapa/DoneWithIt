@@ -6,6 +6,7 @@ import {
   Button,
   TouchableWithoutFeedback,
   FlatList,
+  GestureResponderEvent,
 } from "react-native";
 import AppText from "./AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -15,6 +16,13 @@ import PickerItem from "./PickerItem";
 export interface Item {
   label: string;
   value: number;
+  iconName?: any;
+  iconColor?: string;
+}
+
+export interface PickerItemComponentProps {
+  item: Item;
+  onPress?: ((event: GestureResponderEvent) => void) | undefined;
 }
 
 interface AppPickerProps {
@@ -23,7 +31,7 @@ interface AppPickerProps {
   placeholder?: string;
   numColumns?: number;
   width?: string;
-  PickerItemComponent?: React.FC;
+  PickerItemComponent?: React.FC<PickerItemComponentProps>;
   selectedItem?: any;
   onSelectItem: (item: any) => void;
 }
@@ -65,7 +73,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
           keyExtractor={(item) => item.value.toString()}
           renderItem={({ item }) => (
             <PickerItemComponent
-              label={item.label}
+              item={item}
               onPress={() => {
                 setModalVisible(false);
                 onSelectItem(item);
