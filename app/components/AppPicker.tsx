@@ -22,6 +22,7 @@ interface AppPickerProps {
   icon?: any;
   placeholder?: string;
   width?: string;
+  PickerItemComponent?: React.FC;
   selectedItem?: any;
   onSelectItem: (item: any) => void;
 }
@@ -31,6 +32,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
   icon,
   placeholder,
   width = "100%",
+  PickerItemComponent = PickerItem,
   selectedItem,
   onSelectItem,
 }) => {
@@ -59,7 +61,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
           data={items}
           keyExtractor={(item) => item.value.toString()}
           renderItem={({ item }) => (
-            <PickerItem
+            <PickerItemComponent
               label={item.label}
               onPress={() => {
                 setModalVisible(false);
@@ -95,6 +97,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
+    backgroundColor: colors.white,
   },
 });
 

@@ -7,6 +7,7 @@ import AppFormField from "./form/AppFormField";
 import SubmitButton from "./form/SubmitButton";
 import Screen from "./Screen";
 import AppFormPicker from "./form/AppFormPicker";
+import CategoryPickerItem from "./CategoryPickerItem";
 
 interface ListEditScreenProps {}
 
