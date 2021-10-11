@@ -47,8 +47,9 @@ const ListEditScreen: React.FC<ListEditScreenProps> = () => {
       >
         <AppFormField maxLength={255} name={"title"} placeholder="Title" />
         <AppFormField
+          width="25%"
           maxLength={8}
-          keyboadrdType="numeric"
+          keyboardType="numeric"
           name="price"
           placeholder="Price"
         />

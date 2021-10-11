@@ -1,14 +1,25 @@
 import { useFormikContext } from "formik";
 import * as React from "react";
+import { TextInputProps } from "react-native";
 import AppTextInput from "../AppTextInput";
 import ErrorMessage from "./ErrorMessage";
 
-const AppFormField = ({ name, ...rest }) => {
-  const { handleChange, setFieldTouched, errors, touched } = useFormikContext();
+interface AppFormFiledProps extends TextInputProps {
+  name: string;
+  width?: string;
+}
 
+const AppFormFiled: React.FC<AppFormFiledProps> = ({
+  name,
+  width,
+  ...rest
+}) => {
+  const { handleChange, setFieldTouched, errors, touched } =
+    useFormikContext<any>();
   return (
     <>
       <AppTextInput
+        width={width}
         onChangeText={handleChange(name)}
         onBlur={() => setFieldTouched(name)}
         {...rest}
@@ -18,4 +29,4 @@ const AppFormField = ({ name, ...rest }) => {
   );
 };
 
-export default AppFormField;
+export default AppFormFiled;

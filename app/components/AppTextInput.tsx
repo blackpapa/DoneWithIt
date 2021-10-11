@@ -18,6 +18,7 @@ export interface AppTextInputProps {
   autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
   keyboardType?: KeyboardTypeOptions | undefined;
   textContentType?: any;
+  width?: string;
   secureTextEntry?: boolean | undefined;
   onChangeText?: ((text: string) => void) | undefined;
   onBlur?:
@@ -35,10 +36,11 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
   secureTextEntry,
   onChangeText,
   onBlur,
+  width = "100%",
   ...rest
 }) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { width }]}>
       {icon && (
         <MaterialCommunityIcons style={styles.icon} name={icon} size={20} />
       )}
@@ -64,7 +66,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     padding: 15,
     marginVertical: 10,
     alignItems: "center",
