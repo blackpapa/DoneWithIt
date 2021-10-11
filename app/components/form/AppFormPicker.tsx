@@ -7,6 +7,7 @@ interface AppFormPickerProps {
   name: string;
   items: Item[];
   placeholder: string;
+  numColumns?: number;
   PickerItemComponent?: React.FC;
   width?: string;
 }
@@ -15,6 +16,7 @@ const AppFormPicker: React.FC<AppFormPickerProps> = ({
   name,
   items,
   placeholder,
+  numColumns,
   PickerItemComponent,
   width,
 }) => {
@@ -24,6 +26,7 @@ const AppFormPicker: React.FC<AppFormPickerProps> = ({
       <AppPicker
         items={items}
         placeholder={placeholder}
+        numColumns={numColumns}
         PickerItemComponent={PickerItemComponent}
         width={width}
         onSelectItem={(item) => setFieldValue(name, item)}

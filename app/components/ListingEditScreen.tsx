@@ -57,8 +57,10 @@ const ListEditScreen: React.FC<ListEditScreenProps> = () => {
         <AppFormPicker
           width="50%"
           name="category"
+          numColumns={3}
           items={categories}
           placeholder="Category"
+          PickerItemComponent={CategoryPickerItem}
         />
         <AppFormField
           maxLength={255}

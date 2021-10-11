@@ -21,6 +21,7 @@ interface AppPickerProps {
   items?: Item[];
   icon?: any;
   placeholder?: string;
+  numColumns?: number;
   width?: string;
   PickerItemComponent?: React.FC;
   selectedItem?: any;
@@ -31,6 +32,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
   items,
   icon,
   placeholder,
+  numColumns = 1,
   width = "100%",
   PickerItemComponent = PickerItem,
   selectedItem,
@@ -59,6 +61,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
         </View>
         <FlatList
           data={items}
+          numColumns={numColumns}
           keyExtractor={(item) => item.value.toString()}
           renderItem={({ item }) => (
             <PickerItemComponent
