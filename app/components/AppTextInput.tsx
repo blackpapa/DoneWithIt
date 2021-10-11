@@ -35,6 +35,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
   secureTextEntry,
   onChangeText,
   onBlur,
+  ...rest
 }) => {
   return (
     <View style={styles.container}>
@@ -52,6 +53,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
         textContentType={textContentType}
         secureTextEntry={secureTextEntry}
         onBlur={onBlur}
+        {...rest}
       />
     </View>
   );
