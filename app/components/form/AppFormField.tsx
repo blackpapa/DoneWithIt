@@ -1,10 +1,10 @@
 import { useFormikContext } from "formik";
 import * as React from "react";
-import { TextInputProps } from "react-native";
-import AppTextInput from "../AppTextInput";
+
+import AppTextInput, { AppTextInputProps } from "../AppTextInput";
 import ErrorMessage from "./ErrorMessage";
 
-interface AppFormFiledProps extends TextInputProps {
+interface AppFormFiledProps extends AppTextInputProps {
   name: string;
   width?: string;
 }

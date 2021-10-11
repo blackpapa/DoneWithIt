@@ -6,12 +6,13 @@ import {
   KeyboardTypeOptions,
   NativeSyntheticEvent,
   TextInputFocusEventData,
+  TextInputProps,
 } from "react-native";
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../config/defaultStyles";
 
-export interface AppTextInputProps {
+export interface AppTextInputProps extends TextInputProps {
   placeholder?: string;
   icon?: any;
   autoCorrect?: boolean;

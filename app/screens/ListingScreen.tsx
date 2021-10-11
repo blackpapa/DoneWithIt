@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-import Card from "./Card";
-import Screen from "./Screen";
+import Card from "../components/Card";
+import Screen from "../components/Screen";
 
 interface ListingScreenProps {}
 

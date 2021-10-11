@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { FlatList, View } from "react-native";
 
-import ListItem from "./lists/ListItem";
-import ListItemSeperator from "./lists/ListItemSeperator";
-import Screen from "./Screen";
-import ListItemDeleteAction from "./lists/ListItemDeleteAction";
+import ListItem from "../components/lists/ListItem";
+import ListItemSeperator from "../components/lists/ListItemSeperator";
+import Screen from "../components/Screen";
+import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
 
 interface MessagesScreenProps {}
 

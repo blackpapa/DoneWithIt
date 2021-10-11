@@ -2,12 +2,12 @@ import * as React from "react";
 import * as Yup from "yup";
 import { StyleSheet } from "react-native";
 
-import AppForm from "./form/AppForm";
-import AppFormField from "./form/AppFormField";
-import SubmitButton from "./form/SubmitButton";
-import Screen from "./Screen";
-import AppFormPicker from "./form/AppFormPicker";
-import CategoryPickerItem from "./CategoryPickerItem";
+import AppForm from "../components/form/AppForm";
+import AppFormField from "../components/form/AppFormField";
+import SubmitButton from "../components/form/SubmitButton";
+import Screen from "../components/Screen";
+import AppFormPicker from "../components/form/AppFormPicker";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 import colors from "../config/colors";
 
 interface ListEditScreenProps {}
