@@ -54,6 +54,7 @@ const ListEditScreen: React.FC<ListEditScreenProps> = () => {
           placeholder="Price"
         />
         <AppFormPicker
+          width="50%"
           name="category"
           items={categories}
           placeholder="Category"

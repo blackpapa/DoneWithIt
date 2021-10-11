@@ -21,6 +21,7 @@ interface AppPickerProps {
   items?: Item[];
   icon?: any;
   placeholder?: string;
+  width?: string;
   selectedItem?: any;
   onSelectItem: (item: any) => void;
 }
@@ -29,6 +30,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
   items,
   icon,
   placeholder,
+  width = "100%",
   selectedItem,
   onSelectItem,
 }) => {
@@ -37,7 +39,7 @@ const AppPicker: React.FC<AppPickerProps> = ({
   return (
     <React.Fragment>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {icon && (
             <MaterialCommunityIcons style={styles.icon} name={icon} size={20} />
           )}
@@ -77,7 +79,6 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 25,
     flexDirection: "row",
-    width: "100%",
     marginVertical: 10,
     alignItems: "center",
   },

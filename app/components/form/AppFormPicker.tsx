@@ -7,12 +7,14 @@ interface AppFormPickerProps {
   name: string;
   items: Item[];
   placeholder: string;
+  width?: string;
 }
 
 const AppFormPicker: React.FC<AppFormPickerProps> = ({
   name,
   items,
   placeholder,
+  width,
 }) => {
   const { setFieldValue, values, errors, touched } = useFormikContext<any>();
   return (
@@ -20,6 +22,7 @@ const AppFormPicker: React.FC<AppFormPickerProps> = ({
       <AppPicker
         items={items}
         placeholder={placeholder}
+        width={width}
         onSelectItem={(item) => setFieldValue(name, item)}
         selectedItem={values[name]}
       />
