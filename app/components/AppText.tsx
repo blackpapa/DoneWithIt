@@ -3,10 +3,19 @@ import { Platform, StyleSheet, Text } from "react-native";
 
 interface AppTextProps {
   style?: object;
+  numberOfLines?: number;
 }
 
-const AppText: React.FC<AppTextProps> = ({ children, style }) => {
-  return <Text style={[styles.font, style]}>{children}</Text>;
+const AppText: React.FC<AppTextProps> = ({
+  children,
+  style,
+  numberOfLines,
+}) => {
+  return (
+    <Text numberOfLines={numberOfLines} style={[styles.font, style]}>
+      {children}
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({
