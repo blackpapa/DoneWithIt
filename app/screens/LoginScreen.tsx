@@ -2,7 +2,7 @@ import * as React from "react";
 import * as Yup from "yup";
 import { Image, StyleSheet } from "react-native";
 
-import { AppForm, AppFormField, SubmitButton } from "../components/form";
+import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import Screen from "../components/Screen";
 
 interface LoginScreenProps {}
