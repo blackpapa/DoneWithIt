@@ -1,2 +1,2 @@
 # DoneWithIt
-This is react native project
+This is react native project for selling second stuff 
