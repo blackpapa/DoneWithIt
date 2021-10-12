@@ -38,19 +38,21 @@ const ImageInput: React.FC<ImageInputProps> = ({ imageUri, onChangeImage }) => {
   return (
     <View style={styles.container}>
       {imageUri && <Image source={{ uri: imageUri }} style={styles.image} />}
-      <TouchableWithoutFeedback
-        onPress={() => {
-          pickImage();
-        }}
-      >
-        <View style={styles.iconContainer}>
-          <MaterialCommunityIcons
-            color={colors.medium}
-            name="camera"
-            size={40}
-          />
-        </View>
-      </TouchableWithoutFeedback>
+      {!imageUri && (
+        <TouchableWithoutFeedback
+          onPress={() => {
+            pickImage();
+          }}
+        >
+          <View style={styles.iconContainer}>
+            <MaterialCommunityIcons
+              color={colors.medium}
+              name="camera"
+              size={40}
+            />
+          </View>
+        </TouchableWithoutFeedback>
+      )}
     </View>
   );
 };
