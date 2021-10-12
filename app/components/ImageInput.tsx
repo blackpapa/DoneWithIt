@@ -60,12 +60,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
+    borderRadius: 15,
+    marginLeft: 10,
   },
   iconContainer: {
-    width: 70,
-    height: 70,
+    width: 80,
+    height: 80,
     backgroundColor: colors.light,
     justifyContent: "center",
     alignItems: "center",
