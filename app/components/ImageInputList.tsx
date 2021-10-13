@@ -15,8 +15,12 @@ const ImageInputList: React.FC<ImageInputListProps> = ({
 }) => {
   return (
     <View style={styles.container}>
-      {imageUris.map((uri) => (
-        <ImageInput key={uri} imageUri={uri} onChangeImage={onRemoveImage} />
+      {imageUris.map((imageUri) => (
+        <ImageInput
+          key={imageUri}
+          imageUri={imageUri}
+          onChangeImage={onRemoveImage}
+        />
       ))}
       <ImageInput onChangeImage={onAddImage} />
     </View>
