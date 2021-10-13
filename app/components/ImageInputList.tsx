@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import ImageInput from "./ImageInput";
 
 interface ImageInputListProps {
@@ -14,16 +14,18 @@ const ImageInputList: React.FC<ImageInputListProps> = ({
   onRemoveImage,
 }) => {
   return (
-    <View style={styles.container}>
-      {imageUris.map((imageUri) => (
-        <ImageInput
-          key={imageUri}
-          imageUri={imageUri}
-          onChangeImage={onRemoveImage}
-        />
-      ))}
-      <ImageInput onChangeImage={onAddImage} />
-    </View>
+    <ScrollView horizontal>
+      <View style={styles.container}>
+        {imageUris.map((imageUri) => (
+          <ImageInput
+            key={imageUri}
+            imageUri={imageUri}
+            onChangeImage={onRemoveImage}
+          />
+        ))}
+        <ImageInput onChangeImage={onAddImage} />
+      </View>
+    </ScrollView>
   );
 };
 
