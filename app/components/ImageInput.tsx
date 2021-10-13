@@ -13,7 +13,7 @@ import colors from "../config/colors";
 
 interface ImageInputProps {
   imageUri?: string | null;
-  onChangeImage: (uri: string | null) => void;
+  onChangeImage: (uri: string) => void;
 }
 
 const ImageInput: React.FC<ImageInputProps> = ({ imageUri, onChangeImage }) => {
@@ -30,7 +30,7 @@ const ImageInput: React.FC<ImageInputProps> = ({ imageUri, onChangeImage }) => {
     if (!imageUri) pickImage();
     else
       Alert.alert("Delete", "Are you sure you want to delete the image?", [
-        { text: "Yes", onPress: () => onChangeImage(null) },
+        { text: "Yes", onPress: () => onChangeImage(imageUri) },
         { text: "No" },
       ]);
   };
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 15,
+    marginRight: 10,
   },
   image: {
     width: 80,
