@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ImageInput from "./app/components/ImageInput";
 import Screen from "./app/components/Screen";
 
 export default function App() {
-  const [imageUri, setImageUri] = useState<string>();
+  const [imageUri, setImageUri] = useState<string | null>();
+
   return (
     <Screen>
       <ImageInput
