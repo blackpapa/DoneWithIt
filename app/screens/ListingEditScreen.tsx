@@ -9,8 +9,9 @@ import Screen from "../components/Screen";
 import AppFormPicker from "../components/forms/AppFormPicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import colors from "../config/colors";
+import FormImagePicker from "../components/forms/FormImagePicker";
 
-interface ListEditScreenProps {}
+interface ListingEditScreenProps {}
 
 const categories = [
   {
@@ -74,9 +75,10 @@ const validationSchema = Yup.object().shape({
   price: Yup.number().required().min(1).max(10000).label("Price"),
   category: Yup.object().required().nullable().label("Category"),
   description: Yup.string().label("Description"),
+  images: Yup.array().min(1, "Please select at least one image"),
 });
 
-const ListEditScreen: React.FC<ListEditScreenProps> = () => {
+const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -85,10 +87,12 @@ const ListEditScreen: React.FC<ListEditScreenProps> = () => {
           price: "",
           category: null,
           description: "",
+          images: [],
         }}
         onSubmit={(values: any) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images" />
         <AppFormField maxLength={255} name={"title"} placeholder="Title" />
         <AppFormField
           width="30%"
@@ -124,4 +128,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListEditScreen;
+export default ListingEditScreen;
