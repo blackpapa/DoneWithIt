@@ -1,10 +1,13 @@
 import * as React from "react";
 import { FlatList, StyleSheet } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../Navigators/ListNavigator";
 
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 
-interface ListingScreenProps {}
+interface ListingScreenProps
+  extends NativeStackScreenProps<RootStackParamList, "Listing"> {}
 
 const cards = [
   {
@@ -21,7 +24,7 @@ const cards = [
   },
 ];
 
-const ListingScreen: React.FC<ListingScreenProps> = () => {
+const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
   return (
     <Screen style={styles.screen}>
       <FlatList
