@@ -1,5 +1,6 @@
 import * as React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
+
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 
@@ -40,7 +41,7 @@ const ListingScreen: React.FC<ListingScreenProps> = () => {
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 10,
+    padding: 15,
   },
 });
 
