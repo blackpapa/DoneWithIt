@@ -1,5 +1,6 @@
-import * as React from "react";
+import React from "react";
 import * as Yup from "yup";
+
 import { StyleSheet } from "react-native";
 
 import AppForm from "../components/forms/AppForm";
@@ -10,6 +11,7 @@ import AppFormPicker from "../components/forms/AppFormPicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import colors from "../config/colors";
 import FormImagePicker from "../components/forms/FormImagePicker";
+import useLocation from "./../../hooks/useLocation";
 
 interface ListingEditScreenProps {}
 
@@ -79,6 +81,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
+  const location = useLocation();
+
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -89,7 +93,7 @@ const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
           description: "",
           images: [],
         }}
-        onSubmit={(values: any) => console.log(values)}
+        onSubmit={(values: any) => console.log(location)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
