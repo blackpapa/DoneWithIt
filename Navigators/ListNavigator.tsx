@@ -6,8 +6,8 @@ import ListingDetailsScreen from "../app/screens/ListingDetailsScreen";
 interface ListNavigatorProps {}
 
 export interface ListStackParamList {
-  Listing: undefined;
-  ListingDetails: undefined;
+  Listings: undefined;
+  ListingDetails: any;
   [x: string]: object | undefined;
 }
 
@@ -15,9 +15,18 @@ const Stack = createNativeStackNavigator();
 
 const ListNavigator: React.FC<ListNavigatorProps> = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Listing" component={ListingScreen} />
-      <Stack.Screen name="ListingDetails" component={ListingDetailsScreen} />
+    <Stack.Navigator
+      screenOptions={{
+        headerTitleAlign: "center",
+        presentation: "modal",
+      }}
+    >
+      <Stack.Screen name="Listings" component={ListingScreen} />
+      <Stack.Screen
+        name="ListingDetails"
+        component={ListingDetailsScreen}
+        options={{ headerShown: false }}
+      />
     </Stack.Navigator>
   );
 };

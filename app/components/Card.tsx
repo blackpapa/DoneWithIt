@@ -1,5 +1,10 @@
 import * as React from "react";
-import { Image, View, StyleSheet } from "react-native";
+import {
+  Image,
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+} from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
@@ -7,21 +12,24 @@ interface CardProps {
   image: any;
   title: string;
   subTitle: string;
+  onPress: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, subTitle, image }) => {
+const Card: React.FC<CardProps> = ({ title, subTitle, image, onPress }) => {
   return (
-    <View style={styles.card}>
-      <Image style={styles.image} source={image}></Image>
-      <View style={styles.detailsContainer}>
-        <AppText numberOfLines={1} style={styles.title}>
-          {title}
-        </AppText>
-        <AppText numberOfLines={1} style={styles.subTitle}>
-          {subTitle}
-        </AppText>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.card}>
+        <Image style={styles.image} source={image}></Image>
+        <View style={styles.detailsContainer}>
+          <AppText numberOfLines={1} style={styles.title}>
+            {title}
+          </AppText>
+          <AppText numberOfLines={1} style={styles.subTitle}>
+            {subTitle}
+          </AppText>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -7,7 +7,7 @@ import navigationTheme from "./app/config/navigationTheme";
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AuthNavigator />
+      <TabNavigator />
     </NavigationContainer>
   );
 }

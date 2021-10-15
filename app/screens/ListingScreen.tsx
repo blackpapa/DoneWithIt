@@ -7,7 +7,7 @@ import Card from "../components/Card";
 import Screen from "../components/Screen";
 
 interface ListingScreenProps
-  extends NativeStackScreenProps<ListStackParamList, "Listing"> {}
+  extends NativeStackScreenProps<ListStackParamList, "Listings"> {}
 
 const cards = [
   {
@@ -27,21 +27,18 @@ const cards = [
 const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
   return (
     <Screen style={styles.screen}>
-      <TouchableWithoutFeedback
-        onPress={() => navigation.navigate("ListingDetails")}
-      >
-        <FlatList
-          data={cards}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <Card
-              image={item.image}
-              title={item.title}
-              subTitle={item.subTitle}
-            />
-          )}
-        ></FlatList>
-      </TouchableWithoutFeedback>
+      <FlatList
+        data={cards}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <Card
+            image={item.image}
+            title={item.title}
+            subTitle={item.subTitle}
+            onPress={() => navigation.navigate("ListingDetails", item)}
+          />
+        )}
+      ></FlatList>
     </Screen>
   );
 };

@@ -5,38 +5,36 @@ import AppText from "../components/AppText";
 import ListItem from "../components/lists/ListItem";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ListStackParamList } from "../../Navigators/ListNavigator";
+import Screen from "../components/Screen";
 
 interface ListingDetailsScreenProps
-  extends NativeStackScreenProps<ListStackParamList, "ListingDetails"> {
-  title: string;
-  subTitle: string;
-  image: any;
-}
+  extends NativeStackScreenProps<ListStackParamList, "ListingDetails"> {}
 
 const ListingDetailsScreen: React.FC<ListingDetailsScreenProps> = ({
-  title,
-  subTitle,
-  image,
+  route,
 }) => {
+  const listing = route.params;
   return (
-    <View>
-      <Image resizeMode="contain" style={styles.image} source={image} />
+    <Screen style={styles.container}>
+      <Image resizeMode="contain" style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <AppText style={styles.title}>{listing.title}</AppText>
+        <AppText style={styles.subTitle}>{listing.subTitle}</AppText>
         <View style={{ paddingTop: 20 }}>
           <ListItem
             image={require("../assets/Andy.jpg")}
             title={"Rogan Chen"}
             subTitle={"5 listing items"}
+            style={{ padding: 0 }}
           />
         </View>
       </View>
-    </View>
+    </Screen>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {},
   image: {
     width: "100%",
     height: 250,
