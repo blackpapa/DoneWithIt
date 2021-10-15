@@ -26,7 +26,8 @@ const initialMessages = [
   {
     id: 2,
     title: "Rogan",
-    subTitle: "gentlemen",
+    subTitle:
+      "Hi there, I have an idea that worths 9 millions! Would you like to have a chat",
     image: require("../assets/Andy.jpg"),
   },
 ];

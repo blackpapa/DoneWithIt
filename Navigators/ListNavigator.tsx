@@ -19,14 +19,11 @@ const ListNavigator: React.FC<ListNavigatorProps> = () => {
       screenOptions={{
         headerTitleAlign: "center",
         presentation: "modal",
+        headerShown: false,
       }}
     >
       <Stack.Screen name="Listings" component={ListingScreen} />
-      <Stack.Screen
-        name="ListingDetails"
-        component={ListingDetailsScreen}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="ListingDetails" component={ListingDetailsScreen} />
     </Stack.Navigator>
   );
 };

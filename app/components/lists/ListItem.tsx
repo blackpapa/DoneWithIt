@@ -47,7 +47,7 @@ const ListItem: React.FC<ListItemProps> = ({
               {title}
             </AppText>
             {subTitle && (
-              <AppText numberOfLines={1} style={styles.subTitle}>
+              <AppText numberOfLines={2} style={styles.subTitle}>
                 {subTitle}
               </AppText>
             )}
