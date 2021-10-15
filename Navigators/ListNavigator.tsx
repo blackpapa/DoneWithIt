@@ -5,7 +5,7 @@ import ListingDetailsScreen from "../app/screens/ListingDetailsScreen";
 
 interface ListNavigatorProps {}
 
-export interface RootStackParamList {
+export interface ListStackParamList {
   Listing: undefined;
   ListingDetails: undefined;
   [x: string]: object | undefined;

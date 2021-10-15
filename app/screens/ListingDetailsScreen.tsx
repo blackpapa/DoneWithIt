@@ -3,8 +3,11 @@ import { Image, View, StyleSheet } from "react-native";
 import colors from "../config/colors";
 import AppText from "../components/AppText";
 import ListItem from "../components/lists/ListItem";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ListStackParamList } from "../../Navigators/ListNavigator";
 
-interface ListingDetailsScreenProps {
+interface ListingDetailsScreenProps
+  extends NativeStackScreenProps<ListStackParamList, "ListingDetails"> {
   title: string;
   subTitle: string;
   image: any;

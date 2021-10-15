@@ -1,13 +1,13 @@
 import * as React from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../Navigators/ListNavigator";
+import { ListStackParamList } from "../../Navigators/ListNavigator";
 
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 
 interface ListingScreenProps
-  extends NativeStackScreenProps<RootStackParamList, "Listing"> {}
+  extends NativeStackScreenProps<ListStackParamList, "Listing"> {}
 
 const cards = [
   {
@@ -27,17 +27,21 @@ const cards = [
 const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
   return (
     <Screen style={styles.screen}>
-      <FlatList
-        data={cards}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <Card
-            image={item.image}
-            title={item.title}
-            subTitle={item.subTitle}
-          />
-        )}
-      ></FlatList>
+      <TouchableWithoutFeedback
+        onPress={() => navigation.navigate("ListingDetails")}
+      >
+        <FlatList
+          data={cards}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <Card
+              image={item.image}
+              title={item.title}
+              subTitle={item.subTitle}
+            />
+          )}
+        ></FlatList>
+      </TouchableWithoutFeedback>
     </Screen>
   );
 };

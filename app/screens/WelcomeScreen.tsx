@@ -1,10 +1,13 @@
 import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import AppButton from "../components/AppButton";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AtuhStackParamList } from "../../Navigators/AuthNavigator";
 
-interface WelcomeScreenProps {}
+interface WelcomeScreenProps
+  extends NativeStackScreenProps<AtuhStackParamList, "Welcome"> {}
 
-const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
+const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ navigation }) => {
   return (
     <React.Fragment>
       <ImageBackground
@@ -20,11 +23,14 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = () => {
           <Text style={styles.tagline}>Sell what you don't need</Text>
         </View>
         <View style={styles.buttonsContainer}>
-          <AppButton title="login" onPress={() => console.log("title")} />
+          <AppButton
+            title="login"
+            onPress={() => navigation.navigate("Login")}
+          />
           <AppButton
             title="register"
             color="secondaryColor"
-            onPress={() => console.log("register")}
+            onPress={() => navigation.navigate("Register")}
           />
         </View>
       </ImageBackground>
