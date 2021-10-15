@@ -6,8 +6,11 @@ import Screen from "../components/Screen";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
 import ListItemSeperator from "../components/lists/ListItemSeperator";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AccountStackParamList } from "./../../Navigators/AccountNavigator";
 
-interface AccountScreenProps {}
+interface AccountScreenProps
+  extends NativeStackScreenProps<AccountStackParamList, "Account"> {}
 
 const menuItems = [
   {
@@ -16,6 +19,7 @@ const menuItems = [
       name: "format-list-bulleted",
       backgroundColor: colors.primaryColor,
     },
+    targetScreen: "",
   },
   {
     title: "My Messages",
@@ -23,10 +27,11 @@ const menuItems = [
       name: "email",
       backgroundColor: colors.secondaryColor,
     },
+    targetScreen: "Messages",
   },
 ];
 
-const AccountScreen: React.FC<AccountScreenProps> = () => {
+const AccountScreen: React.FC<AccountScreenProps> = ({ navigation }) => {
   return (
     <Screen style={styles.screen}>
       <ListItem
@@ -48,6 +53,7 @@ const AccountScreen: React.FC<AccountScreenProps> = () => {
                   backgroundColor={item.icon.backgroundColor}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
           ItemSeparatorComponent={ListItemSeperator}
