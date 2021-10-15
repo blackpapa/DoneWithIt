@@ -1,10 +1,11 @@
 import * as React from "react";
 import { Image, View, StyleSheet } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ListStackParamList } from "../../Navigators/ListNavigator";
+
 import colors from "../config/colors";
 import AppText from "../components/AppText";
 import ListItem from "../components/lists/ListItem";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ListStackParamList } from "../../Navigators/ListNavigator";
 import Screen from "../components/Screen";
 
 interface ListingDetailsScreenProps
