@@ -19,7 +19,8 @@ const initialMessages = [
   {
     id: 1,
     title: "Andy",
-    subTitle: "gentlemen",
+    subTitle:
+      "Hi there, you are so handsome! I would like to introduce a cloth to you!",
     image: require("../assets/Andy.jpg"),
   },
   {
