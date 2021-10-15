@@ -13,7 +13,7 @@ interface ListingDetailsScreenProps
 const ListingDetailsScreen: React.FC<ListingDetailsScreenProps> = ({
   route,
 }) => {
-  const listing = route.params;
+  const listing: any = route.params;
   return (
     <Screen style={styles.container}>
       <Image resizeMode="contain" style={styles.image} source={listing.image} />
