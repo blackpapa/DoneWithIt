@@ -5,6 +5,7 @@ import { ListStackParamList } from "../../navigation/ListNavigator";
 
 import Card from "../components/Card";
 import Screen from "../components/Screen";
+import routes from "../../navigation/routes";
 
 interface ListingScreenProps
   extends NativeStackScreenProps<ListStackParamList, "Listings"> {}
@@ -35,7 +36,7 @@ const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
             image={item.image}
             title={item.title}
             subTitle={item.subTitle}
-            onPress={() => navigation.navigate("ListingDetails", item)}
+            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
         )}
       ></FlatList>
