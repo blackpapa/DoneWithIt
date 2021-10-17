@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import AccountScreen from "./../app/screens/AccountScreen";
-import MessagesScreen from "./../app/screens/MessagesScreen";
+import AccountScreen from "../app/screens/AccountScreen";
+import MessagesScreen from "../app/screens/MessagesScreen";
 
 interface AccountNavigatorProps {}
 

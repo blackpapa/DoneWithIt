@@ -2,7 +2,7 @@ import React from "react";
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
 import AppButton from "../components/AppButton";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { AtuhStackParamList } from "../../Navigators/AuthNavigator";
+import { AtuhStackParamList } from "../../navigation/AuthNavigator";
 
 interface WelcomeScreenProps
   extends NativeStackScreenProps<AtuhStackParamList, "Welcome"> {}

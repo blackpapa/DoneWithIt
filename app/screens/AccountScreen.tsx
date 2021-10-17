@@ -7,7 +7,7 @@ import colors from "../config/colors";
 import Icon from "../components/Icon";
 import ListItemSeperator from "../components/lists/ListItemSeperator";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { AccountStackParamList } from "./../../Navigators/AccountNavigator";
+import { AccountStackParamList } from "../../navigation/AccountNavigator";
 
 interface AccountScreenProps
   extends NativeStackScreenProps<AccountStackParamList, "Account"> {}

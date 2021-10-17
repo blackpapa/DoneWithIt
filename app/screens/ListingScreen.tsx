@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FlatList, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ListStackParamList } from "../../Navigators/ListNavigator";
+import { ListStackParamList } from "../../navigation/ListNavigator";
 
 import Card from "../components/Card";
 import Screen from "../components/Screen";
