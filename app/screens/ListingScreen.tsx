@@ -7,12 +7,15 @@ import listingsApi from "../api/listings";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
 import routes from "../../navigation/routes";
+import AppText from "../components/AppText";
+import AppButton from "../components/AppButton";
 
 interface ListingScreenProps
   extends NativeStackScreenProps<ListStackParamList, "Listings"> {}
 
 const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
   const [listings, setListings] = useState<any>([]);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     loadlistings();
@@ -20,11 +23,24 @@ const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
 
   const loadlistings = async () => {
     const response = await listingsApi.getListings();
+    if (!response.ok) {
+      setError(true);
+      return;
+    }
     setListings(response.data);
+    setError(false);
   };
 
   return (
     <Screen style={styles.screen}>
+      {error && (
+        <>
+          <AppText style={{ fontSize: 20 }}>
+            Please click the button to retry!
+          </AppText>
+          <AppButton title="Retry" onPress={() => loadlistings()} />
+        </>
+      )}
       <FlatList
         data={listings}
         keyExtractor={(item) => item.id.toString()}

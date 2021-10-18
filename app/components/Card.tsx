@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ title, subTitle, imageUrl, onPress }) => {
             {title}
           </AppText>
           <AppText numberOfLines={1} style={styles.subTitle}>
-            {subTitle}
+            ${subTitle}
           </AppText>
         </View>
       </View>
