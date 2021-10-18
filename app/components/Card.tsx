@@ -9,17 +9,17 @@ import colors from "../config/colors";
 import AppText from "./AppText";
 
 interface CardProps {
-  image: any;
+  imageUrl: any;
   title: string;
-  subTitle: string;
+  subTitle: number;
   onPress: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, subTitle, image, onPress }) => {
+const Card: React.FC<CardProps> = ({ title, subTitle, imageUrl, onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
-        <Image style={styles.image} source={image}></Image>
+        <Image style={styles.image} source={{ uri: imageUrl }}></Image>
         <View style={styles.detailsContainer}>
           <AppText numberOfLines={1} style={styles.title}>
             {title}
