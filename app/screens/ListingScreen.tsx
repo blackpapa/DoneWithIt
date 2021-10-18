@@ -9,6 +9,7 @@ import Screen from "../components/Screen";
 import routes from "../../navigation/routes";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
+import ActivityIndicator from "../components/ActivityIndicator";
 
 interface ListingScreenProps
   extends NativeStackScreenProps<ListStackParamList, "Listings"> {}
@@ -16,6 +17,7 @@ interface ListingScreenProps
 const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
   const [listings, setListings] = useState<any>([]);
   const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     loadlistings();
@@ -23,10 +25,13 @@ const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
 
   const loadlistings = async () => {
     const response = await listingsApi.getListings();
+    setLoading(false);
+
     if (!response.ok) {
       setError(true);
       return;
     }
+
     setListings(response.data);
     setError(false);
   };
@@ -41,6 +46,7 @@ const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
           <AppButton title="Retry" onPress={() => loadlistings()} />
         </>
       )}
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(item) => item.id.toString()}

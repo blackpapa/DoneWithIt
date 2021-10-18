@@ -14,13 +14,17 @@ interface ListingDetailsScreenProps
 const ListingDetailsScreen: React.FC<ListingDetailsScreenProps> = ({
   route,
 }) => {
-  const listing: any = route.params;
+  const item: any = route.params;
   return (
     <Screen style={styles.container}>
-      <Image resizeMode="contain" style={styles.image} source={listing.image} />
+      <Image
+        resizeMode="contain"
+        style={styles.image}
+        source={{ uri: item.images[0].url }}
+      />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{listing.title}</AppText>
-        <AppText style={styles.subTitle}>{listing.subTitle}</AppText>
+        <AppText style={styles.title}>{item.title}</AppText>
+        <AppText style={styles.subTitle}>{item.price}</AppText>
         <View style={{ paddingTop: 20 }}>
           <ListItem
             image={require("../assets/Andy.jpg")}
