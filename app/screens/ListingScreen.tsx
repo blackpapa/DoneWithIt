@@ -10,31 +10,22 @@ import routes from "../../navigation/routes";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 import ActivityIndicator from "../components/ActivityIndicator";
+import useApi from "./../../hooks/useApi";
 
 interface ListingScreenProps
   extends NativeStackScreenProps<ListStackParamList, "Listings"> {}
 
 const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
-  const [listings, setListings] = useState<any>([]);
-  const [error, setError] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadlistings,
+  } = useApi(listingsApi.getListings);
 
   useEffect(() => {
     loadlistings();
   }, []);
-
-  const loadlistings = async () => {
-    const response = await listingsApi.getListings();
-    setLoading(false);
-
-    if (!response.ok) {
-      setError(true);
-      return;
-    }
-
-    setListings(response.data);
-    setError(false);
-  };
 
   return (
     <Screen style={styles.screen}>

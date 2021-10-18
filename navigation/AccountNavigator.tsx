@@ -6,7 +6,7 @@ import MessagesScreen from "../app/screens/MessagesScreen";
 interface AccountNavigatorProps {}
 
 export interface AccountStackParamList {
-  Account: undefined;
+  Accounts: undefined;
   Message: undefined;
   [x: string]: object | undefined;
 }
@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator();
 const AccountNavigator: React.FC<AccountNavigatorProps> = () => {
   return (
     <Stack.Navigator screenOptions={{ headerTitleAlign: "center" }}>
-      <Stack.Screen name="Account" component={AccountScreen}></Stack.Screen>
+      <Stack.Screen name="Accounts" component={AccountScreen}></Stack.Screen>
       <Stack.Screen name="Messages" component={MessagesScreen}></Stack.Screen>
     </Stack.Navigator>
   );
