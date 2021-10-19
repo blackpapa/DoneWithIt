@@ -86,22 +86,29 @@ const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const location = useLocation();
 
-  const handleSubmit = async (listing: any) => {
+  const handleSubmit = async (listing: any, resetForm: any) => {
     setProgress(0);
     setModalVisible(true);
     const result = await listingsApi.addListing(
       { ...listing, location },
       (progress: any) => setProgress(progress)
     );
-    setModalVisible(false);
 
-    if (!result.ok) return alert("Could not save the listing.");
-    alert("Success");
+    if (!result.ok) {
+      setModalVisible(false);
+      return alert("Could not save the listing.");
+    }
+
+    resetForm();
   };
 
   return (
     <Screen style={styles.container}>
-      <UploadScreen progress={progress} visible={modalVisible} />
+      <UploadScreen
+        onDone={() => setModalVisible(false)}
+        progress={progress}
+        visible={modalVisible}
+      />
       <AppForm
         initialValues={{
           title: "",
@@ -110,7 +117,9 @@ const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
           description: "",
           images: [],
         }}
-        onSubmit={(values: any) => handleSubmit(values)}
+        onSubmit={(values: any, { resetForm }: any) =>
+          handleSubmit(values, resetForm)
+        }
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
