@@ -1,5 +1,7 @@
 import React from "react";
+import * as Progress from "react-native-progress";
 import { View, StyleSheet, Text, Modal } from "react-native";
+import colors from "../config/colors";
 
 interface UploadScreenProps {
   progress: number;
@@ -13,7 +15,11 @@ const UploadScreen: React.FC<UploadScreenProps> = ({
   return (
     <Modal visible={visible}>
       <View style={styles.container}>
-        <Text>The progress: {progress * 100} %</Text>
+        <Progress.Bar
+          progress={progress}
+          color={colors.primaryColor}
+          width={200}
+        />
       </View>
     </Modal>
   );

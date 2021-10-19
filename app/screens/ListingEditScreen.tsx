@@ -87,6 +87,7 @@ const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
   const location = useLocation();
 
   const handleSubmit = async (listing: any) => {
+    setProgress(0);
     setModalVisible(true);
     const result = await listingsApi.addListing(
       { ...listing, location },
