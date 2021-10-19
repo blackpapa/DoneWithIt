@@ -84,7 +84,10 @@ const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
   const location = useLocation();
 
   const handleSubmit = async (listing: any) => {
-    const result = await listingsApi.addListing({ ...listing, location });
+    const result = await listingsApi.addListing(
+      { ...listing, location },
+      (progess: any) => console.log(progess)
+    );
 
     if (!result.ok) return alert("Could not save the listing.");
     alert("Success");
