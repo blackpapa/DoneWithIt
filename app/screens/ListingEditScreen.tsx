@@ -11,7 +11,7 @@ import AppFormPicker from "../components/forms/AppFormPicker";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import colors from "../config/colors";
 import FormImagePicker from "../components/forms/FormImagePicker";
-import useLocation from "./../../hooks/useLocation";
+import useLocation from "../hooks/useLocation";
 import UploadScreen from "./UploadScreen";
 
 interface ListingEditScreenProps {}

@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ListingScreen from "../app/screens/ListingScreen";
-import ListingDetailsScreen from "../app/screens/ListingDetailsScreen";
+import ListingScreen from "../screens/ListingScreen";
+import ListingDetailsScreen from "../screens/ListingDetailsScreen";
 
 interface ListNavigatorProps {}
 

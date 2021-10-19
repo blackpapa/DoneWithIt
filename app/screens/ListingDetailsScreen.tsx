@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Image, View, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ListStackParamList } from "../../navigation/ListNavigator";
+import { ListStackParamList } from "../navigation/ListNavigator";
 
 import colors from "../config/colors";
 import AppText from "../components/AppText";

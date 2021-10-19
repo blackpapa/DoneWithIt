@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { ListStackParamList } from "../../navigation/ListNavigator";
+import { ListStackParamList } from "../navigation/ListNavigator";
 
 import listingsApi from "../api/listings";
 import Card from "../components/Card";
 import Screen from "../components/Screen";
-import routes from "../../navigation/routes";
+import routes from "../navigation/routes";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 import ActivityIndicator from "../components/ActivityIndicator";
-import useApi from "./../../hooks/useApi";
+import useApi from "../hooks/useApi";
 
 interface ListingScreenProps
   extends NativeStackScreenProps<ListStackParamList, "Listings"> {}
