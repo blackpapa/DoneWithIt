@@ -6,18 +6,25 @@ interface UploadScreenProps {
   visible: boolean;
 }
 
-const UploadScreen: React.FC<UploadScreenProps> = (progress, visible) => {
+const UploadScreen: React.FC<UploadScreenProps> = ({
+  progress = 0,
+  visible = false,
+}) => {
   return (
-    <View style={styles.container}>
-      <Modal visible={visible}>
-        <Text>The progress: {progress}</Text>
-      </Modal>
-    </View>
+    <Modal visible={visible}>
+      <View style={styles.container}>
+        <Text>The progress: {progress * 100} %</Text>
+      </View>
+    </Modal>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 export default UploadScreen;
