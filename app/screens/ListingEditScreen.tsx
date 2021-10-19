@@ -1,8 +1,8 @@
 import React from "react";
 import * as Yup from "yup";
-
 import { StyleSheet } from "react-native";
 
+import listingsApi from "../api/listings";
 import AppForm from "../components/forms/AppForm";
 import AppFormField from "../components/forms/AppFormField";
 import SubmitButton from "../components/forms/SubmitButton";
@@ -83,6 +83,13 @@ const validationSchema = Yup.object().shape({
 const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
   const location = useLocation();
 
+  const handleSubmit = async (listing: any) => {
+    const result = await listingsApi.addListing({ ...listing, location });
+
+    if (!result.ok) return alert("Could not save the listing.");
+    alert("Success");
+  };
+
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -93,7 +100,7 @@ const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
           description: "",
           images: [],
         }}
-        onSubmit={(values: any) => console.log(location)}
+        onSubmit={(values: any) => handleSubmit(values)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
