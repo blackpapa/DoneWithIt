@@ -49,6 +49,8 @@ const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
         )}
+        refreshing={false}
+        onRefresh={() => loadlistings()}
       ></FlatList>
     </Screen>
   );
