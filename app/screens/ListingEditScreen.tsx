@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import { StyleSheet } from "react-native";
 
@@ -12,6 +12,7 @@ import CategoryPickerItem from "../components/CategoryPickerItem";
 import colors from "../config/colors";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import useLocation from "./../../hooks/useLocation";
+import UploadScreen from "./UploadScreen";
 
 interface ListingEditScreenProps {}
 
@@ -81,13 +82,17 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
+  const [progress, setProgress] = useState<number>(0);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
   const location = useLocation();
 
   const handleSubmit = async (listing: any) => {
+    setModalVisible(true);
     const result = await listingsApi.addListing(
       { ...listing, location },
-      (progess: any) => console.log(progess)
+      (progress: any) => setProgress(progress)
     );
+    setModalVisible(false);
 
     if (!result.ok) return alert("Could not save the listing.");
     alert("Success");
@@ -95,6 +100,7 @@ const ListingEditScreen: React.FC<ListingEditScreenProps> = () => {
 
   return (
     <Screen style={styles.container}>
+      <UploadScreen progress={progress} visible={modalVisible} />
       <AppForm
         initialValues={{
           title: "",
