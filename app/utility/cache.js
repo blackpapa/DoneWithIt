@@ -4,8 +4,17 @@ const prefix = "cache";
 
 const store = async (key, value) => {
   try {
-    await AsyncStorage.setItem(prefix + key, JSON.stringify(value));
+    const item = {
+      value,
+      timestamp: Date.now(),
+    };
+
+    await AsyncStorage.setItem(prefix + key, JSON.stringify(item));
   } catch (error) {
     console.log(error);
   }
+};
+
+export default {
+  store,
 };
