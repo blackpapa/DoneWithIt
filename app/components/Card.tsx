@@ -1,25 +1,33 @@
 import * as React from "react";
-import {
-  Image,
-  View,
-  StyleSheet,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
+import { Image } from "react-native-expo-image-cache";
 
 interface CardProps {
   imageUrl: any;
+  thumbnailUrl: any;
   title: string;
   subTitle: number;
   onPress: any;
 }
 
-const Card: React.FC<CardProps> = ({ title, subTitle, imageUrl, onPress }) => {
+const Card: React.FC<CardProps> = ({
+  title,
+  subTitle,
+  imageUrl,
+  thumbnailUrl,
+  onPress,
+}) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
-        <Image style={styles.image} source={{ uri: imageUrl }}></Image>
+        <Image
+          style={styles.image}
+          preview={{ uri: thumbnailUrl }}
+          tint="light"
+          uri={imageUrl}
+        ></Image>
         <View style={styles.detailsContainer}>
           <AppText numberOfLines={1} style={styles.title}>
             {title}

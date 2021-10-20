@@ -44,6 +44,7 @@ const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
         renderItem={({ item }) => (
           <Card
             imageUrl={item.images[0].url}
+            thumbnailUrl={item.images[0].thumbnailUrl}
             title={item.title}
             subTitle={item.price}
             onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}

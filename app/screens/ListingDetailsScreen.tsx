@@ -1,7 +1,8 @@
 import * as React from "react";
-import { Image, View, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ListStackParamList } from "../navigation/ListNavigator";
+import { Image } from "react-native-expo-image-cache";
 
 import colors from "../config/colors";
 import AppText from "../components/AppText";
@@ -18,9 +19,10 @@ const ListingDetailsScreen: React.FC<ListingDetailsScreenProps> = ({
   return (
     <Screen style={styles.container}>
       <Image
-        resizeMode="contain"
+        uri={item.images[0].url}
+        preview={{ uri: item.images[0].thumbnailUrl }}
+        tint="light"
         style={styles.image}
-        source={{ uri: item.images[0].url }}
       />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{item.title}</AppText>
