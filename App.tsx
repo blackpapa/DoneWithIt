@@ -3,13 +3,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import TabNavigator from "./app/navigation/TabNavigator";
 import navigationTheme from "./app/config/navigationTheme";
 import OfflineNotice from "./app/components/OfflineNotice";
+import AuthNavigator from "./app/navigation/AuthNavigator";
 
 export default function App() {
   return (
     <>
       <OfflineNotice />
       <NavigationContainer theme={navigationTheme}>
-        <TabNavigator />
+        <AuthNavigator />
       </NavigationContainer>
     </>
   );
