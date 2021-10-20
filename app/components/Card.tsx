@@ -5,8 +5,8 @@ import AppText from "./AppText";
 import { Image } from "react-native-expo-image-cache";
 
 interface CardProps {
-  imageUrl: any;
-  thumbnailUrl: any;
+  imageUrl: string;
+  thumbnailUrl: string;
   title: string;
   subTitle: number;
   onPress: any;
