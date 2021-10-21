@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import ListItem from "../components/lists/ListItem";
@@ -8,6 +8,7 @@ import Icon from "../components/Icon";
 import ListItemSeperator from "../components/lists/ListItemSeperator";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AccountStackParamList } from "../navigation/AccountNavigator";
+import AuthContext from "./../auth/context";
 
 interface AccountScreenProps
   extends NativeStackScreenProps<AccountStackParamList, "Account"> {}
@@ -32,11 +33,13 @@ const menuItems = [
 ];
 
 const AccountScreen: React.FC<AccountScreenProps> = ({ navigation }) => {
+  const { user, setUser } = useContext(AuthContext);
+
   return (
     <Screen style={styles.screen}>
       <ListItem
-        title="Andy"
-        subTitle="andyAdmin@gmail.com"
+        title={user.name}
+        subTitle={user.email}
         image={require("../assets/Andy.jpg")}
         style={{ backgroundColor: colors.white }}
       />
