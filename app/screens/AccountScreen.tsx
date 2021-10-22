@@ -9,6 +9,7 @@ import ListItemSeperator from "../components/lists/ListItemSeperator";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AccountStackParamList } from "../navigation/AccountNavigator";
 import AuthContext from "./../auth/context";
+import AuthStorage from "./../auth/storage";
 
 interface AccountScreenProps
   extends NativeStackScreenProps<AccountStackParamList, "Account"> {}
@@ -37,6 +38,7 @@ const AccountScreen: React.FC<AccountScreenProps> = ({ navigation }) => {
 
   const handleLogout = () => {
     setUser(null);
+    AuthStorage.removeToken();
   };
 
   return (
