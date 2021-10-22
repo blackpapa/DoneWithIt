@@ -15,11 +15,11 @@ export default function App() {
   const [isReady, setIsReady] = useState<boolean>(false);
 
   const restoreToken = async () => {
-    const token = await AuthStorage.getToken();
+    const user: any = await AuthStorage.getUser();
 
-    if (!token) return;
+    if (!user) return;
 
-    setUser(jwtDecode(token));
+    setUser(user);
   };
 
   if (!isReady)
