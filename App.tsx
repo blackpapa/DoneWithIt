@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import jwtDecode from "jwt-decode";
 import { NavigationContainer } from "@react-navigation/native";
 
 import TabNavigator from "./app/navigation/TabNavigator";
