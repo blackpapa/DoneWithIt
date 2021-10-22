@@ -12,6 +12,7 @@ import {
 import authApi from "../api/auth";
 import Screen from "../components/Screen";
 import AuthContext from "./../auth/context";
+import AuthStorage from "../auth/storage";
 
 interface LoginScreenProps {}
 
@@ -32,6 +33,9 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
 
     const user = jwtDecode(response.data);
     authContext.setUser(user);
+    //Storage the token
+    await AuthStorage.storageToken(response.data);
+
     setAuthFailed(false);
   };
 
