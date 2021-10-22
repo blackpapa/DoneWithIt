@@ -35,6 +35,10 @@ const menuItems = [
 const AccountScreen: React.FC<AccountScreenProps> = ({ navigation }) => {
   const { user, setUser } = useContext(AuthContext);
 
+  const handleLogout = () => {
+    setUser(null);
+  };
+
   return (
     <Screen style={styles.screen}>
       <ListItem
@@ -66,6 +70,7 @@ const AccountScreen: React.FC<AccountScreenProps> = ({ navigation }) => {
         <ListItem
           title="Log Out"
           IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+          onPress={handleLogout}
         />
       </View>
     </Screen>
