@@ -7,7 +7,7 @@ import AuthContext from "../auth/context";
 const useAuth = () => {
   const { user, setUser } = useContext(AuthContext);
 
-  const login = async (authToken: string) => {
+  const login = async (authToken: any) => {
     const user = jwtDecode(authToken);
     setUser(user);
     //Storage the token

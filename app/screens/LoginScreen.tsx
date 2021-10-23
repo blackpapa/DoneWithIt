@@ -25,7 +25,7 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
 
   const handleSubmit = async (value: any) => {
     const { email, password } = value;
-    const response = await authApi.auth(email, password);
+    const response = await authApi.login(email, password);
 
     if (!response.ok) return setAuthFailed(true);
 
