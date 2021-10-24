@@ -3,10 +3,11 @@ import { useState } from "react";
 const useApi = (apiFunc: any) => {
   const [data, setData] = useState<any>([]);
   const [error, setError] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   //Calling api
   const request = async (...args: any[]) => {
+    setLoading(true);
     const response = await apiFunc(...args);
     setLoading(false);
 
