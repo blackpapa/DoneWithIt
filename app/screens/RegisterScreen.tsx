@@ -12,6 +12,7 @@ import authApi from "../api/auth";
 import Screen from "../components/Screen";
 import { StyleSheet } from "react-native";
 import useAuth from "./../hooks/useAuth";
+import useApi from "./../hooks/useApi";
 
 interface RegisterScreenProps {}
 
@@ -25,9 +26,11 @@ const RegisterScreen: React.FC<RegisterScreenProps> = () => {
   const [error, setError] = useState<string>();
   const [registerFailed, setRegisterFailed] = useState<boolean>(false);
   const { login } = useAuth();
+  const registerApi = useApi(usersApi.register);
+  const loginApi = useApi(authApi.login);
 
   const handleSubmit = async (userInfo: any) => {
-    const response = await usersApi.register(userInfo);
+    const response = await registerApi.request(userInfo);
 
     if (!response.ok) {
       if (response.data) {
@@ -41,7 +44,7 @@ const RegisterScreen: React.FC<RegisterScreenProps> = () => {
       return;
     }
 
-    const { data: authToken } = await authApi.login(
+    const { data: authToken } = await loginApi.request(
       userInfo.email,
       userInfo.password
     );

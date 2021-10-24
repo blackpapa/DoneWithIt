@@ -10,12 +10,8 @@ const useApi = (apiFunc: any) => {
     const response = await apiFunc(...args);
     setLoading(false);
 
-    if (!response.ok) {
-      setError(true);
-      return response;
-    }
+    setError(!response.ok);
 
-    setError(false);
     setData(response.data);
     return response;
   };
