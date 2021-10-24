@@ -28,32 +28,34 @@ const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
   }, []);
 
   return (
-    <Screen style={styles.screen}>
-      {error && (
-        <>
-          <AppText style={{ fontSize: 20 }}>
-            Please click the button to retry!
-          </AppText>
-          <AppButton title="Retry" onPress={() => loadlistings()} />
-        </>
-      )}
+    <>
       <ActivityIndicator visible={loading} />
-      <FlatList
-        data={listings}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <Card
-            imageUrl={item.images[0].url}
-            thumbnailUrl={item.images[0].thumbnailUrl}
-            title={item.title}
-            subTitle={item.price}
-            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
-          />
+      <Screen style={styles.screen}>
+        {error && (
+          <>
+            <AppText style={{ fontSize: 20 }}>
+              Please click the button to retry!
+            </AppText>
+            <AppButton title="Retry" onPress={() => loadlistings()} />
+          </>
         )}
-        refreshing={false}
-        onRefresh={() => loadlistings()}
-      ></FlatList>
-    </Screen>
+        <FlatList
+          data={listings}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <Card
+              imageUrl={item.images[0].url}
+              thumbnailUrl={item.images[0].thumbnailUrl}
+              title={item.title}
+              subTitle={item.price}
+              onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
+            />
+          )}
+          refreshing={false}
+          onRefresh={() => loadlistings()}
+        ></FlatList>
+      </Screen>
+    </>
   );
 };
 
