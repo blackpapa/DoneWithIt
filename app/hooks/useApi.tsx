@@ -12,12 +12,13 @@ const useApi = (apiFunc: any) => {
 
     if (!response.ok) {
       setError(true);
-      return;
+      return response;
     }
 
+    setError(false);
     setData(response.data);
+    return response;
   };
-
   return { data, error, loading, request };
 };
 
