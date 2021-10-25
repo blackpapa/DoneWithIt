@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import * as Permission from "expo-permissions";
 import * as Notifications from "expo-notifications";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -20,7 +19,7 @@ const TabNavigator: React.FC<TabNavigatorProps> = () => {
 
   const registerForPushNotifications = async () => {
     try {
-      const granted = await Permission.askAsync(Permission.NOTIFICATIONS);
+      const granted = Notifications.requestPermissionsAsync();
       if (!granted) return;
 
       const token = await Notifications.getExpoPushTokenAsync();

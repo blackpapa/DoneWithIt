@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FlatList, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { ListStackParamList } from "../navigation/ListNavigator";
@@ -51,7 +51,7 @@ const ListingScreen: React.FC<ListingScreenProps> = ({ navigation }) => {
               onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
             />
           )}
-          refreshing={false}
+          refreshing={loading}
           onRefresh={() => loadlistings()}
         ></FlatList>
       </Screen>
