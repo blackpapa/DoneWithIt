@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import * as Permission from "expo-permissions";
+import * as Notifications from "expo-notifications";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -12,6 +14,22 @@ interface TabNavigatorProps {}
 const Tab = createBottomTabNavigator();
 
 const TabNavigator: React.FC<TabNavigatorProps> = () => {
+  useEffect(() => {
+    registerForPushNotifications();
+  }, []);
+
+  const registerForPushNotifications = async () => {
+    try {
+      const granted = await Permission.askAsync(Permission.NOTIFICATIONS);
+      if (!granted) return;
+
+      const token = await Notifications.getExpoPushTokenAsync();
+      console.log(token);
+    } catch (error) {
+      console.log("Error getting a push token", error);
+    }
+  };
+
   return (
     <Tab.Navigator
       screenOptions={{ headerShown: false, tabBarActiveTintColor: "tomato" }}
