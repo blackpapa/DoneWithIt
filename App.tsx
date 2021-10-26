@@ -10,6 +10,9 @@ import AuthContext from "./app/auth/context";
 import AuthStorage from "./app/auth/storage";
 import AppLoading from "expo-app-loading";
 import { navigationRef } from "./app/navigation/rootNavigator";
+import logger from "./app/utility/logger";
+
+logger.start();
 
 export default function App() {
   const [user, setUser] = useState<object>();

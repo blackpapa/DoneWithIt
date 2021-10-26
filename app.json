@@ -27,6 +27,13 @@
     },
     "web": {
       "favicon": "./app/assets/favicon.png"
-    }
+    },
+      "extra": {
+        "bugsnag": {
+          "apiKey": "21647aab19fbfe111f7bd7538ea48ce3"
+        }
+      }
+    
   }
+ 
 }
