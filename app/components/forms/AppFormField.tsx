@@ -14,14 +14,8 @@ const AppFormFiled: React.FC<AppFormFiledProps> = ({
   width,
   ...rest
 }) => {
-  const {
-    handleChange,
-    setFieldValue,
-    setFieldTouched,
-    values,
-    errors,
-    touched,
-  } = useFormikContext<any>();
+  const { setFieldValue, setFieldTouched, values, errors, touched } =
+    useFormikContext<any>();
   return (
     <>
       <AppTextInput

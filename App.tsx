@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
+import * as Notifications from "expo-notifications";
 
 import TabNavigator from "./app/navigation/TabNavigator";
 import navigationTheme from "./app/config/navigationTheme";
@@ -21,6 +22,17 @@ export default function App() {
 
     setUser(user);
   };
+
+  //Define how to handle a notification
+  Notifications.setNotificationHandler({
+    handleNotification: async () => {
+      return {
+        shouldShowAlert: true,
+        shouldPlaySound: true,
+        shouldSetBadge: true,
+      };
+    },
+  });
 
   if (!isReady)
     return (
