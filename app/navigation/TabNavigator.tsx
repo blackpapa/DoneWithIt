@@ -8,6 +8,7 @@ import ListingEditScreen from "../screens/ListingEditScreen";
 import ListNavigator from "./ListNavigator";
 import AccountNavigator from "./AccountNavigator";
 import ListingEditButton from "./ListingEditButton";
+import navigator from "./rootNavigator";
 
 interface TabNavigatorProps {}
 
@@ -16,7 +17,15 @@ const Tab = createBottomTabNavigator();
 const TabNavigator: React.FC<TabNavigatorProps> = () => {
   useEffect(() => {
     registerForPushNotifications();
-  }, []);
+
+    const subscription = Notifications.addNotificationReceivedListener(
+      (notification) => {
+        navigator.navigate("Account");
+      }
+    );
+
+    return () => subscription.remove();
+  });
 
   const registerForPushNotifications = async () => {
     try {

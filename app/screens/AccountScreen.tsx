@@ -11,7 +11,7 @@ import { AccountStackParamList } from "../navigation/AccountNavigator";
 import useAuth from "./../hooks/useAuth";
 
 interface AccountScreenProps
-  extends NativeStackScreenProps<AccountStackParamList, "Account"> {}
+  extends NativeStackScreenProps<AccountStackParamList, "Accounts"> {}
 
 const menuItems = [
   {
