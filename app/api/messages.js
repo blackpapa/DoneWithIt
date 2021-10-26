@@ -2,7 +2,8 @@ import apiClient from "./client";
 
 const apiEndPoint = "/messages";
 
-const sendMessage = (message) => apiClient.post(apiEndPoint, message);
+const sendMessage = (message, listingId) =>
+  apiClient.post(apiEndPoint, { message, listingId });
 
 export default {
   sendMessage,
